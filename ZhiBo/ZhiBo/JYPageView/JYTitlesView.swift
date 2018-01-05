@@ -11,8 +11,10 @@ import UIKit
 class JYTitlesView: UIView {
 
     //MARK:- 属性
-    var titles:[String]
-    var style:JYPageStyle
+    fileprivate var titles:[String]
+    fileprivate var style:JYPageStyle
+    fileprivate lazy var titleLabels:[UILabel] = [UILabel]()
+    var currentIndex:Int = 0
     
     //MARK:- 懒加载
     private lazy var scrollView : UIScrollView = {
@@ -41,7 +43,6 @@ extension JYTitlesView {
     fileprivate func setupUI() {
         self.backgroundColor = UIColor.blue
         addSubview(scrollView)
-        var titleLabels:[UILabel] = [UILabel]()
         for (i,title) in titles.enumerated() {
             //创建Label
             let titleLabel = UILabel()
@@ -88,8 +89,26 @@ extension JYTitlesView {
 //MARK:- 监听点击事件
 extension JYTitlesView {
     @objc fileprivate func titleLabelClick(_ tapGes:UITapGestureRecognizer) {
-        guard let titleLabel = tapGes.view as? UILabel else { return }
-        print(titleLabel.tag)
+        guard let targetLabel = tapGes.view as? UILabel else { return } //获取目标label
+        guard currentIndex != targetLabel.tag else { return } //如果连续两次选中的是同一个label则不需要后面的操作
+        
+        let sourceLabel = titleLabels[currentIndex]
+        sourceLabel.textColor = style.normalColor
+        targetLabel.textColor = style.selectColor
+        
+        currentIndex = targetLabel.tag
+        
+        var offsetX = titleLabels[currentIndex].center.x - scrollView.bounds.width * 0.5
+        if offsetX < 0 {
+            offsetX = 0
+        }
+        
+        let maxOffsetX = scrollView.contentSize.width - scrollView.bounds.width
+        if offsetX > maxOffsetX {
+            offsetX = maxOffsetX
+        }
+        
+        scrollView.setContentOffset(CGPoint.init(x: offsetX, y: 0), animated: true)
     }
 }
 
