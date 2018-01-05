@@ -23,10 +23,11 @@ class JYContentView: UIView {
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
         
-        let cView = UICollectionView(frame: self.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+        let cView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
         cView.delegate = self
         cView.dataSource = self
         cView.isPagingEnabled = true
+        cView.bounces = false
         cView.showsHorizontalScrollIndicator = false
         cView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kContentCellID)
         
@@ -50,6 +51,7 @@ class JYContentView: UIView {
 //MARK:- 设置UI界面
 extension JYContentView {
     fileprivate func setupUI() {
+        print(frame);
         for childVC in childVCs {
             parentVC.addChildViewController(childVC)
         }
@@ -67,6 +69,7 @@ extension JYContentView : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kContentCellID, for: indexPath)
         
+        cell.backgroundColor = UIColor.randomColor()
         return cell
     }
 }

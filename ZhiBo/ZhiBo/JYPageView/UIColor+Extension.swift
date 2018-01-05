@@ -51,5 +51,4 @@ extension UIColor {
         
         self.init(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: 1.0)
     }
-    
 }
