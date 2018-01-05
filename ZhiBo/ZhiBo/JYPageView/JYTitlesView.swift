@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol JYTitlesViewDelegate:class {
+    func titleViewSelectIndex(_ titleView:JYTitlesView,currentIndex:Int)
+}
+
 class JYTitlesView: UIView {
 
     //MARK:- 属性
     fileprivate var titles:[String]
     fileprivate var style:JYPageStyle
+    weak var delegate:JYTitlesViewDelegate?
+    
     fileprivate lazy var titleLabels:[UILabel] = [UILabel]()
     var currentIndex:Int = 0
     
@@ -109,6 +115,7 @@ extension JYTitlesView {
         }
         
         scrollView.setContentOffset(CGPoint.init(x: offsetX, y: 0), animated: true)
+        delegate?.titleViewSelectIndex(self, currentIndex: currentIndex)
     }
 }
 

@@ -79,7 +79,13 @@ extension JYContentView : UICollectionViewDelegate {
     
 }
 
-
+//MARK:- 遵守JYTitlesViewDelegate
+extension JYContentView : JYTitlesViewDelegate {
+    func titleViewSelectIndex(_ titleView: JYTitlesView, currentIndex: Int) {
+        let indexPath = IndexPath(item: currentIndex, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+    }
+}
 
 
 
