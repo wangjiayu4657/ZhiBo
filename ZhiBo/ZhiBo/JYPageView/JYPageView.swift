@@ -42,7 +42,10 @@ extension JYPageView {
         //添加子控件
         addSubview(titleView)
         addSubview(contentView)
+        
+        //设置代理
         titleView.delegate = contentView
+        contentView.delegate = titleView
     }
 }
 

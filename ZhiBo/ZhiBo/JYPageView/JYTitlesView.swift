@@ -104,6 +104,13 @@ extension JYTitlesView {
         
         currentIndex = targetLabel.tag
         
+        adjustTitleLabelPostion()
+        
+        delegate?.titleViewSelectIndex(self, currentIndex: currentIndex)
+    }
+    
+    //调整titleLabel的位置
+    fileprivate func adjustTitleLabelPostion() {
         var offsetX = titleLabels[currentIndex].center.x - scrollView.bounds.width * 0.5
         if offsetX < 0 {
             offsetX = 0
@@ -113,14 +120,17 @@ extension JYTitlesView {
         if offsetX > maxOffsetX {
             offsetX = maxOffsetX
         }
-        
         scrollView.setContentOffset(CGPoint.init(x: offsetX, y: 0), animated: true)
-        delegate?.titleViewSelectIndex(self, currentIndex: currentIndex)
     }
 }
 
-
-
+//MARK:- 遵守JYContentViewDelegate
+extension JYTitlesView : JYContentViewDelegate {
+    func contentView(_ contentView: JYContentView, endScrollInIndex index: Int) {
+        currentIndex = index
+        adjustTitleLabelPostion()
+    }
+}
 
 
 

@@ -8,9 +8,17 @@
 
 import UIKit
 
+protocol JYContentViewDelegate:class {
+    func contentView(_ contentView:JYContentView,endScrollInIndex index:Int)
+}
+
 private let kContentCellID = "kContentCellID"
 
 class JYContentView: UIView {
+    
+    //MARK:- 代理属性
+    weak var delegate:JYContentViewDelegate?
+    
     //MARK:- 属性
     var childVCs:[UIViewController]
     var parentVC:UIViewController
@@ -68,8 +76,13 @@ extension JYContentView : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kContentCellID, for: indexPath)
+        for subView in cell.contentView.subviews {
+            subView.removeFromSuperview()
+        }
         
-        cell.backgroundColor = UIColor.randomColor()
+        let controller = childVCs[indexPath.row];
+        controller.view.backgroundColor = UIColor.randomColor()
+        cell.contentView.addSubview(controller.view)
         return cell
     }
 }
@@ -77,6 +90,20 @@ extension JYContentView : UICollectionViewDataSource {
 //MARK:- 遵守UIcollectionViewDelegate协议
 extension JYContentView : UICollectionViewDelegate {
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        scrollViewDidEndScroll()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if decelerate {
+            scrollViewDidEndScroll()
+        }
+    }
+    
+    private func scrollViewDidEndScroll(){
+        let index = Int(collectionView.contentOffset.x / collectionView.bounds.width)
+        delegate?.contentView(self, endScrollInIndex: index)
+    }
 }
 
 //MARK:- 遵守JYTitlesViewDelegate
