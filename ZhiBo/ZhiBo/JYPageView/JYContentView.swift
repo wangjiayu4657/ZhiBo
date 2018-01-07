@@ -10,6 +10,7 @@ import UIKit
 
 protocol JYContentViewDelegate:class {
     func contentView(_ contentView:JYContentView,endScrollInIndex index:Int)
+    func contentView(_ contentView:JYContentView,sourceIndex:Int,targetIndex:Int,progress:CGFloat)
 }
 
 private let kContentCellID = "kContentCellID"
@@ -22,6 +23,7 @@ class JYContentView: UIView {
     //MARK:- 属性
     var childVCs:[UIViewController]
     var parentVC:UIViewController
+    fileprivate var startOffsetX:CGFloat = 0
     
     //MARK:- 懒加载
     fileprivate lazy var collectionView : UICollectionView = {
@@ -32,10 +34,10 @@ class JYContentView: UIView {
         layout.scrollDirection = .horizontal
         
         let cView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
+        cView.bounces = false
         cView.delegate = self
         cView.dataSource = self
         cView.isPagingEnabled = true
-        cView.bounces = false
         cView.showsHorizontalScrollIndicator = false
         cView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kContentCellID)
         
@@ -100,10 +102,48 @@ extension JYContentView : UICollectionViewDelegate {
         }
     }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startOffsetX = scrollView.contentOffset.x
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let currentOffsetX = scrollView.contentOffset.x
+//        guard currentOffsetX != startOffsetX else { return } //如果当前没有滑动则不进行任何操作
+        
+        //定义所需传递的变量
+        var sourceIndex = 0
+        var targetIndex = 0
+        var progress:CGFloat = 0.0
+        let collectionWidth = collectionView.bounds.width
+        
+        if currentOffsetX >= startOffsetX { //左滑动
+            sourceIndex = Int(currentOffsetX / collectionWidth)
+            targetIndex = sourceIndex + 1
+            if targetIndex >= childVCs.count {
+                targetIndex = childVCs.count - 1
+            }
+            
+            if (currentOffsetX - startOffsetX) == collectionWidth {
+                 targetIndex = sourceIndex
+            }
+            
+            progress = (currentOffsetX - startOffsetX) / collectionWidth
+        } else { //右滑动
+            targetIndex = Int(currentOffsetX / collectionWidth)
+            sourceIndex = targetIndex + 1
+            progress = (startOffsetX - currentOffsetX) / collectionWidth
+        }
+        
+        delegate?.contentView(self, sourceIndex: sourceIndex, targetIndex: targetIndex, progress: progress)
+    }
+    
+    //scrollView停止滚动
     private func scrollViewDidEndScroll(){
         let index = Int(collectionView.contentOffset.x / collectionView.bounds.width)
         delegate?.contentView(self, endScrollInIndex: index)
     }
+    
+    
 }
 
 //MARK:- 遵守JYTitlesViewDelegate

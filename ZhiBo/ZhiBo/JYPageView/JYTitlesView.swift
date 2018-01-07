@@ -15,14 +15,22 @@ protocol JYTitlesViewDelegate:class {
 class JYTitlesView: UIView {
 
     //MARK:- 属性
+    var currentIndex:Int = 0
     fileprivate var titles:[String]
     fileprivate var style:JYPageStyle
     weak var delegate:JYTitlesViewDelegate?
     
-    fileprivate lazy var titleLabels:[UILabel] = [UILabel]()
-    var currentIndex:Int = 0
     
     //MARK:- 懒加载
+    fileprivate lazy var titleLabels:[UILabel] = [UILabel]()
+    fileprivate lazy var normalRGB:(CGFloat,CGFloat,CGFloat) = self.style.normalColor.getRGBValue()
+    fileprivate lazy var selectRGB:(CGFloat,CGFloat,CGFloat) = self.style.selectColor.getRGBValue()
+    fileprivate lazy var deltaRGB:(CGFloat,CGFloat,CGFloat) = {
+        var deltaR = self.selectRGB.0 - self.normalRGB.0
+        var deltaG = self.selectRGB.1 - self.normalRGB.1
+        var deltaB = self.selectRGB.2 - self.normalRGB.2
+        return (deltaR,deltaG,deltaB)
+    }()
     private lazy var scrollView : UIScrollView = {
        let scrollView = UIScrollView(frame: self.bounds)
         scrollView.scrollsToTop = false
@@ -47,7 +55,7 @@ class JYTitlesView: UIView {
 //MARK:- 设置UI界面
 extension JYTitlesView {
     fileprivate func setupUI() {
-        self.backgroundColor = UIColor.blue
+        self.backgroundColor = UIColor.lightGray
         addSubview(scrollView)
         for (i,title) in titles.enumerated() {
             //创建Label
@@ -129,6 +137,16 @@ extension JYTitlesView : JYContentViewDelegate {
     func contentView(_ contentView: JYContentView, endScrollInIndex index: Int) {
         currentIndex = index
         adjustTitleLabelPostion()
+    }
+    
+    func contentView(_ contentView: JYContentView, sourceIndex: Int, targetIndex: Int, progress: CGFloat) {
+        print(sourceIndex, targetIndex)
+        
+        let sourceLabel = titleLabels[sourceIndex]
+        let targetLabel = titleLabels[targetIndex]
+       
+        sourceLabel.textColor = UIColor(r: selectRGB.0 - deltaRGB.0 * progress, g: selectRGB.1 - deltaRGB.1 * progress, b: selectRGB.2 - deltaRGB.2 * progress)
+        targetLabel.textColor = UIColor(r: normalRGB.0 + deltaRGB.0 * progress, g: normalRGB.1 + deltaRGB.1 * progress, b: normalRGB.2 + deltaRGB.2 * progress)
     }
 }
 

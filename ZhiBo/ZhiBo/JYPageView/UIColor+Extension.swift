@@ -43,12 +43,23 @@ extension UIColor {
         let gHex = (tempHex as NSString).substring(with: range)
         range.location = 4
         let bHex = (tempHex as NSString).substring(with: range)
-        print("r = \(rHex),g = \(gHex),b = \(bHex)");
         
         Scanner(string: rHex).scanFloat(&r)
         Scanner(string: gHex).scanFloat(&g)
         Scanner(string: bHex).scanFloat(&b)
         
         self.init(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: 1.0)
+    }
+}
+extension UIColor {
+    func getRGBValue()->(CGFloat,CGFloat,CGFloat) {
+        
+        guard let comps = cgColor.components else {
+            fatalError("请确保颜色是通过RGB创建的")
+        }
+        
+        print(comps)
+        
+        return (comps[0] * 255, comps[1] * 255, comps[2] * 255)
     }
 }
