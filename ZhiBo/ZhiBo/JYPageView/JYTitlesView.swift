@@ -29,6 +29,7 @@ class JYTitlesView: UIView {
         var deltaR = self.selectRGB.0 - self.normalRGB.0
         var deltaG = self.selectRGB.1 - self.normalRGB.1
         var deltaB = self.selectRGB.2 - self.normalRGB.2
+        print(deltaR,deltaG,deltaB)
         return (deltaR,deltaG,deltaB)
     }()
     private lazy var scrollView : UIScrollView = {
@@ -140,6 +141,7 @@ extension JYTitlesView : JYContentViewDelegate {
     }
     
     func contentView(_ contentView: JYContentView, sourceIndex: Int, targetIndex: Int, progress: CGFloat) {
+        
         let sourceLabel = titleLabels[sourceIndex]
         let targetLabel = titleLabels[targetIndex]
         

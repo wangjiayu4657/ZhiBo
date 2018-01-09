@@ -121,6 +121,7 @@ extension JYContentView : UICollectionViewDelegate {
         
         if currentOffsetX > startOffsetX { //左滑动
             sourceIndex = Int(currentOffsetX / collectionWidth)
+            targetIndex = sourceIndex + 1
             if targetIndex >= childVCs.count {
                 targetIndex = childVCs.count - 1
             }
