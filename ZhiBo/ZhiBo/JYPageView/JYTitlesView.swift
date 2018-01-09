@@ -87,7 +87,7 @@ extension JYTitlesView {
             if style.isScrollViewEnable {
                 let size = CGSize(width: CGFloat(MAXFLOAT), height: 0)
                 labelW = (titleLabel.text! as NSString).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:style.titleFont], context: nil).width
-                labelX = i == 0 ? style.margin * 0.5 : titleLabels[i - 1].frame.maxX + style.margin
+                labelX = (i == 0) ? style.margin * 0.5 : (titleLabels[i - 1].frame.maxX + style.margin)
             }else {
                 labelX = labelW * CGFloat(i)
             }
@@ -109,7 +109,7 @@ extension JYTitlesView {
         let sourceLabel = titleLabels[currentIndex]
         sourceLabel.textColor = style.normalColor
         targetLabel.textColor = style.selectColor
-        
+        print("tag = \(targetLabel.tag)")
         currentIndex = targetLabel.tag
         
         adjustTitleLabelPostion()
@@ -140,11 +140,9 @@ extension JYTitlesView : JYContentViewDelegate {
     }
     
     func contentView(_ contentView: JYContentView, sourceIndex: Int, targetIndex: Int, progress: CGFloat) {
-        print(sourceIndex, targetIndex)
-        
         let sourceLabel = titleLabels[sourceIndex]
         let targetLabel = titleLabels[targetIndex]
-       
+        
         sourceLabel.textColor = UIColor(r: selectRGB.0 - deltaRGB.0 * progress, g: selectRGB.1 - deltaRGB.1 * progress, b: selectRGB.2 - deltaRGB.2 * progress)
         targetLabel.textColor = UIColor(r: normalRGB.0 + deltaRGB.0 * progress, g: normalRGB.1 + deltaRGB.1 * progress, b: normalRGB.2 + deltaRGB.2 * progress)
     }
