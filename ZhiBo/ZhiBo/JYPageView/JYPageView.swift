@@ -17,9 +17,9 @@ class JYPageView: UIView {
     var parentVC:UIViewController
     
     //MARK:- 懒加载控件
-    fileprivate lazy var titleView : JYTitlesView = JYTitlesView(frame: CGRect.init(x: 0, y: 0, width: bounds.width, height: style.titleHiight), titles: titles, style: style)
+    fileprivate lazy var titleView : JYTitlesView = JYTitlesView(frame: CGRect.init(x: 0, y: 0, width: bounds.width, height: style.titleHeight), titles: titles, style: style)
     
-    fileprivate lazy var contentView : JYContentView = JYContentView(frame: CGRect.init(x: 0, y: style.titleHiight, width: bounds.width, height: bounds.height - style.titleHiight), childVCs: childVCs, parentVC: parentVC)
+    fileprivate lazy var contentView : JYContentView = JYContentView(frame: CGRect.init(x: 0, y: style.titleHeight, width: bounds.width, height: bounds.height - style.titleHeight), childVCs: childVCs, parentVC: parentVC)
 
     //MARK:- 构造函数
     init(frame:CGRect,titles:[String],style:JYPageStyle,childVCs:[UIViewController],parentVC:UIViewController) {

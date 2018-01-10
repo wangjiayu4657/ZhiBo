@@ -10,7 +10,7 @@ import UIKit
 
 struct JYPageStyle {
     //标题视图的高度
-    var titleHiight:CGFloat = 44.0
+    var titleHeight:CGFloat = 44.0
     //标题字体的大小
     var titleFont = UIFont.systemFont(ofSize: 14)
     //标题默认的颜色
@@ -21,5 +21,9 @@ struct JYPageStyle {
     var margin:CGFloat = 20
     //标题是否可以滚动
     var isScrollViewEnable:Bool = false
-    
+
+    //标题下是否显示下划线
+    var isShowBottomLine:Bool = true
+    //底部滑动条的高度
+    var bottomLineHeight:CGFloat = 2.0
 }

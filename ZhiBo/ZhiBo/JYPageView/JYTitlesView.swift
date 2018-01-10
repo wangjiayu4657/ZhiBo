@@ -29,7 +29,6 @@ class JYTitlesView: UIView {
         var deltaR = self.selectRGB.0 - self.normalRGB.0
         var deltaG = self.selectRGB.1 - self.normalRGB.1
         var deltaB = self.selectRGB.2 - self.normalRGB.2
-        print(deltaR,deltaG,deltaB)
         return (deltaR,deltaG,deltaB)
     }()
     private lazy var scrollView : UIScrollView = {
@@ -37,6 +36,11 @@ class JYTitlesView: UIView {
         scrollView.scrollsToTop = false
         scrollView.showsHorizontalScrollIndicator = false
         return scrollView
+    }()
+    private lazy var bottomLine:UIView = {
+        let line = UIView()
+        line.backgroundColor = self.style.selectColor
+        return line
     }()
     
     init(frame: CGRect,titles:[String],style:JYPageStyle) {
@@ -58,6 +62,13 @@ extension JYTitlesView {
     fileprivate func setupUI() {
         self.backgroundColor = UIColor.lightGray
         addSubview(scrollView)
+        
+        setupTitleLabel()
+        setupBottomLine()
+    }
+    
+    //设置标题
+    private func setupTitleLabel() {
         for (i,title) in titles.enumerated() {
             //创建Label
             let titleLabel = UILabel()
@@ -82,7 +93,7 @@ extension JYTitlesView {
         var labelX:CGFloat = 0
         let labelY:CGFloat = 0
         var labelW:CGFloat = bounds.width / CGFloat(titles.count)
-        let labelH:CGFloat = style.titleHiight
+        let labelH:CGFloat = style.titleHeight
         
         for (i,titleLabel) in titleLabels.enumerated() {
             if style.isScrollViewEnable {
@@ -100,6 +111,16 @@ extension JYTitlesView {
             scrollView.contentSize = CGSize(width: titleLabels.last!.frame.maxX + style.margin * 0.5, height: 0)
         }
     }
+    
+    //添加下划线
+    private func setupBottomLine() {
+        if style.isShowBottomLine {
+            scrollView.addSubview(bottomLine)
+            bottomLine.frame = titleLabels.first!.frame
+            bottomLine.frame.size.height = style.bottomLineHeight
+            bottomLine.frame.origin.y = style.titleHeight - style.bottomLineHeight
+        }
+    }
 }
 //MARK:- 监听点击事件
 extension JYTitlesView {
@@ -110,12 +131,20 @@ extension JYTitlesView {
         let sourceLabel = titleLabels[currentIndex]
         sourceLabel.textColor = style.normalColor
         targetLabel.textColor = style.selectColor
-        print("tag = \(targetLabel.tag)")
+
         currentIndex = targetLabel.tag
         
         adjustTitleLabelPostion()
         
         delegate?.titleViewSelectIndex(self, currentIndex: currentIndex)
+        
+        //调整下划线的位置
+        if style.isShowBottomLine {
+            UIView.animate(withDuration: 0.25, animations: {
+                self.bottomLine.center.x = targetLabel.center.x
+                self.bottomLine.bounds.size.width = targetLabel.bounds.width
+            })
+        }
     }
     
     //调整titleLabel的位置
@@ -131,6 +160,7 @@ extension JYTitlesView {
         }
         scrollView.setContentOffset(CGPoint.init(x: offsetX, y: 0), animated: true)
     }
+    
 }
 
 //MARK:- 遵守JYContentViewDelegate
@@ -147,6 +177,19 @@ extension JYTitlesView : JYContentViewDelegate {
         
         sourceLabel.textColor = UIColor(r: selectRGB.0 - deltaRGB.0 * progress, g: selectRGB.1 - deltaRGB.1 * progress, b: selectRGB.2 - deltaRGB.2 * progress)
         targetLabel.textColor = UIColor(r: normalRGB.0 + deltaRGB.0 * progress, g: normalRGB.1 + deltaRGB.1 * progress, b: normalRGB.2 + deltaRGB.2 * progress)
+        
+        //调整bottomLine的位置及宽度
+        let deltaW = targetLabel.bounds.width - sourceLabel.bounds.width
+        let deltaX = targetLabel.center.x - sourceLabel.center.x
+        
+        if style.isShowBottomLine {
+            UIView.animate(withDuration: 0.25, animations: {
+                self.bottomLine.center.x = sourceLabel.center.x + deltaX * progress
+                self.bottomLine.bounds.size.width = sourceLabel.frame.width + deltaW * progress
+            })
+        }
+        
+        
     }
 }
 
