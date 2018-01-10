@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         }
         var style = JYPageStyle()
         style.isScrollViewEnable = true
+        style.isNeedScale = true
         let pageView = JYPageView(frame: frame, titles: titles, style: style, childVCs: childVCs, parentVC: self)
         
         view.addSubview(pageView)

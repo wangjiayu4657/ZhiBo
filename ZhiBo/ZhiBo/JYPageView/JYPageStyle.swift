@@ -21,9 +21,15 @@ struct JYPageStyle {
     var margin:CGFloat = 20
     //标题是否可以滚动
     var isScrollViewEnable:Bool = false
-
     //标题下是否显示下划线
     var isShowBottomLine:Bool = true
+    //标题下划线的颜色
+    var bottomLineColor:UIColor = UIColor.orange
     //底部滑动条的高度
     var bottomLineHeight:CGFloat = 2.0
+    //是否需要缩放
+    var isNeedScale:Bool = false
+    //最大缩放比例
+    var maxScale:CGFloat = 1.2
 }
+

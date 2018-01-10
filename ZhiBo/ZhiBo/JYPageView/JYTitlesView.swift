@@ -106,9 +106,15 @@ extension JYTitlesView {
             titleLabel.frame = CGRect(x: labelX, y: labelY, width: labelW, height: labelH)
         }
         
+        
         //设置scrollView的contentSize
         if style.isScrollViewEnable {
             scrollView.contentSize = CGSize(width: titleLabels.last!.frame.maxX + style.margin * 0.5, height: 0)
+        }
+        
+        //缩放标题
+        titleLabels.first?.transform = CGAffineTransform(scaleX: style.maxScale, y: style.maxScale)
+        if style.isNeedScale {
         }
     }
     
@@ -145,6 +151,13 @@ extension JYTitlesView {
                 self.bottomLine.bounds.size.width = targetLabel.bounds.width
             })
         }
+        
+        //缩放
+        if style.isNeedScale {
+            sourceLabel.transform = CGAffineTransform.identity
+            targetLabel.transform = CGAffineTransform(scaleX: self.style.maxScale, y: self.style.maxScale)
+        }
+        
     }
     
     //调整titleLabel的位置
@@ -181,11 +194,21 @@ extension JYTitlesView : JYContentViewDelegate {
         //调整bottomLine的位置及宽度
         let deltaW = targetLabel.bounds.width - sourceLabel.bounds.width
         let deltaX = targetLabel.center.x - sourceLabel.center.x
-        
         if style.isShowBottomLine {
             UIView.animate(withDuration: 0.25, animations: {
                 self.bottomLine.center.x = sourceLabel.center.x + deltaX * progress
                 self.bottomLine.bounds.size.width = sourceLabel.frame.width + deltaW * progress
+            })
+        }
+        
+        //缩放标题字体
+        let deltaScale = style.maxScale - 1.0
+        if style.isNeedScale {
+            UIView.animate(withDuration: 0.25, animations: {
+                let scale = self.style.maxScale
+                let deltaProgress = deltaScale * progress
+                sourceLabel.transform = CGAffineTransform(scaleX: scale - deltaProgress, y: scale - deltaProgress)
+                targetLabel.transform = CGAffineTransform(scaleX: 1.0 + deltaProgress, y: 1.0 + deltaProgress)
             })
         }
         
