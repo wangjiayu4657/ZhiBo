@@ -20,7 +20,6 @@ class JYTitlesView: UIView {
     fileprivate var style:JYPageStyle
     weak var delegate:JYTitlesViewDelegate?
     
-    
     //MARK:- 懒加载
     fileprivate lazy var titleLabels:[UILabel] = [UILabel]()
     fileprivate lazy var normalRGB:(CGFloat,CGFloat,CGFloat) = self.style.normalColor.getRGBValue()
@@ -106,15 +105,14 @@ extension JYTitlesView {
             titleLabel.frame = CGRect(x: labelX, y: labelY, width: labelW, height: labelH)
         }
         
-        
         //设置scrollView的contentSize
         if style.isScrollViewEnable {
             scrollView.contentSize = CGSize(width: titleLabels.last!.frame.maxX + style.margin * 0.5, height: 0)
         }
         
         //缩放标题
-        titleLabels.first?.transform = CGAffineTransform(scaleX: style.maxScale, y: style.maxScale)
         if style.isNeedScale {
+            titleLabels.first?.transform = CGAffineTransform(scaleX: style.maxScale, y: style.maxScale)
         }
     }
     
@@ -144,20 +142,19 @@ extension JYTitlesView {
         
         delegate?.titleViewSelectIndex(self, currentIndex: currentIndex)
         
-        //调整下划线的位置
-        if style.isShowBottomLine {
-            UIView.animate(withDuration: 0.25, animations: {
-                self.bottomLine.center.x = targetLabel.center.x
-                self.bottomLine.bounds.size.width = targetLabel.bounds.width
-            })
-        }
-        
         //缩放
         if style.isNeedScale {
             sourceLabel.transform = CGAffineTransform.identity
             targetLabel.transform = CGAffineTransform(scaleX: self.style.maxScale, y: self.style.maxScale)
         }
-        
+
+        //调整下划线的位置
+        if style.isShowBottomLine {
+            UIView.animate(withDuration: 0.25, animations: {
+                self.bottomLine.frame.origin.x = targetLabel.frame.origin.x
+                self.bottomLine.frame.size.width = targetLabel.frame.width
+            })
+        }
     }
     
     //调整titleLabel的位置
@@ -191,16 +188,6 @@ extension JYTitlesView : JYContentViewDelegate {
         sourceLabel.textColor = UIColor(r: selectRGB.0 - deltaRGB.0 * progress, g: selectRGB.1 - deltaRGB.1 * progress, b: selectRGB.2 - deltaRGB.2 * progress)
         targetLabel.textColor = UIColor(r: normalRGB.0 + deltaRGB.0 * progress, g: normalRGB.1 + deltaRGB.1 * progress, b: normalRGB.2 + deltaRGB.2 * progress)
         
-        //调整bottomLine的位置及宽度
-        let deltaW = targetLabel.bounds.width - sourceLabel.bounds.width
-        let deltaX = targetLabel.center.x - sourceLabel.center.x
-        if style.isShowBottomLine {
-            UIView.animate(withDuration: 0.25, animations: {
-                self.bottomLine.center.x = sourceLabel.center.x + deltaX * progress
-                self.bottomLine.bounds.size.width = sourceLabel.frame.width + deltaW * progress
-            })
-        }
-        
         //缩放标题字体
         let deltaScale = style.maxScale - 1.0
         if style.isNeedScale {
@@ -211,12 +198,21 @@ extension JYTitlesView : JYContentViewDelegate {
                 targetLabel.transform = CGAffineTransform(scaleX: 1.0 + deltaProgress, y: 1.0 + deltaProgress)
             })
         }
-        
-        
+
+        //调整bottomLine的位置及宽度
+        let deltaW = targetLabel.frame.width - sourceLabel.frame.width
+        let deltaX = targetLabel.center.x - sourceLabel.center.x
+        if style.isShowBottomLine {
+            UIView.animate(withDuration: 0.25, animations: {
+                self.bottomLine.center.x = sourceLabel.center.x + deltaX * progress
+                self.bottomLine.frame.size.width = sourceLabel.frame.width + deltaW * progress
+            })
+        }
     }
 }
 
-
+//UIViewAlertForUnsatisfiableConstraints
+//po [[UIWindow keyWindow] _autolayoutTrace]
 
 
 

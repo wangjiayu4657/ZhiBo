@@ -54,12 +54,19 @@ extension UIColor {
 extension UIColor {
     func getRGBValue()->(CGFloat,CGFloat,CGFloat) {
         
-        guard let comps = cgColor.components else {
-            fatalError("请确保颜色是通过RGB创建的")
-        }
-        
-        print(comps)
-        
-        return (comps[0] * 255, comps[1] * 255, comps[2] * 255)
+//        guard let comps = cgColor.components else {
+//            fatalError("请确保颜色是通过RGB创建的")
+//        }
+//
+//        print(comps)
+//
+//        return (comps[0] * 255, comps[1] * 255, comps[2] * 255)
+//
+        var r:CGFloat = 0
+        var g:CGFloat = 0
+        var b:CGFloat = 0
+        //获取rgbd
+        getRed(&r, green: &g, blue: &b, alpha: nil)
+        return (r * 255,g * 255,b * 255)
     }
 }
