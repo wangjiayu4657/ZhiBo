@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let frame = CGRect(x: 0, y: 64, width: view.bounds.width, height: view.bounds.height)
+//        let titles = ["推荐","娱乐","游戏","趣玩"]
         let titles = ["推荐","娱乐","游戏","趣玩娱乐","推荐娱乐娱乐","娱乐娱乐","游戏","趣娱玩"]
         var childVCs = [UIViewController]()
         for _ in 0..<titles.count {
@@ -23,7 +24,9 @@ class ViewController: UIViewController {
         }
         var style = JYPageStyle()
         style.isScrollViewEnable = true
-        style.isNeedScale = true
+//        style.isNeedScale = true
+        style.isShowBottomLine = false
+        style.isShowCoverView = true
         let pageView = JYPageView(frame: frame, titles: titles, style: style, childVCs: childVCs, parentVC: self)
         
         view.addSubview(pageView)

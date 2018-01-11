@@ -106,7 +106,6 @@ extension JYContentView : UICollectionViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         isForbidDelegate = false
         startOffsetX = scrollView.contentOffset.x
-        print("startOffsetX = \(startOffsetX)")
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

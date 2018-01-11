@@ -41,12 +41,19 @@ class JYTitlesView: UIView {
         line.backgroundColor = self.style.selectColor
         return line
     }()
+    private lazy var coverView:UIView = {
+        let coverView = UIView()
+        coverView.backgroundColor = self.style.coverViewColor
+        coverView.alpha = self.style.coverViewAlpha
+        return coverView
+    }()
     
     init(frame: CGRect,titles:[String],style:JYPageStyle) {
         self.titles = titles
         self.style = style
         super.init(frame:frame)
         
+        self.backgroundColor = UIColor.blue
         setupUI()
     }
     
@@ -59,11 +66,12 @@ class JYTitlesView: UIView {
 //MARK:- 设置UI界面
 extension JYTitlesView {
     fileprivate func setupUI() {
-        self.backgroundColor = UIColor.lightGray
+        
         addSubview(scrollView)
         
         setupTitleLabel()
         setupBottomLine()
+        setupCoverView()
     }
     
     //设置标题
@@ -125,6 +133,21 @@ extension JYTitlesView {
             bottomLine.frame.origin.y = style.titleHeight - style.bottomLineHeight
         }
     }
+    
+    //设置遮盖视图
+    private func setupCoverView() {
+        if style.isShowCoverView {
+            guard let firstLabel = titleLabels.first else { return }
+            scrollView.insertSubview(coverView, at: 0)
+            
+            coverView.frame.origin.x = style.coverViewMargin - firstLabel.frame.origin.x
+            coverView.frame.origin.y = firstLabel.frame.height * 0.25
+            coverView.frame.size.width = firstLabel.frame.width + style.coverViewMargin * 2
+            coverView.frame.size.height = firstLabel.frame.height * 0.5
+            coverView.layer.cornerRadius = coverView.frame.height * 0.5
+            coverView.layer.masksToBounds = true
+        }
+    }
 }
 //MARK:- 监听点击事件
 extension JYTitlesView {
@@ -155,10 +178,21 @@ extension JYTitlesView {
                 self.bottomLine.frame.size.width = targetLabel.frame.width
             })
         }
+        
+        //调整遮盖视图的位置
+        if style.isShowCoverView {
+            let coverX = targetLabel.frame.origin.x - style.coverViewMargin
+            let coverW = targetLabel.frame.width + style.coverViewMargin * 2
+            UIView.animate(withDuration: 0.25, animations: {
+                self.coverView.frame.origin.x = self.style.isScrollViewEnable ? coverX : targetLabel.frame.origin.x
+                self.coverView.frame.size.width = self.style.isScrollViewEnable ? coverW : targetLabel.frame.width
+            })
+        }
     }
     
     //调整titleLabel的位置
     fileprivate func adjustTitleLabelPostion() {
+        guard style.isScrollViewEnable else { return }
         var offsetX = titleLabels[currentIndex].center.x - scrollView.bounds.width * 0.5
         if offsetX < 0 {
             offsetX = 0
@@ -170,7 +204,6 @@ extension JYTitlesView {
         }
         scrollView.setContentOffset(CGPoint.init(x: offsetX, y: 0), animated: true)
     }
-    
 }
 
 //MARK:- 遵守JYContentViewDelegate
@@ -201,11 +234,19 @@ extension JYTitlesView : JYContentViewDelegate {
 
         //调整bottomLine的位置及宽度
         let deltaW = targetLabel.frame.width - sourceLabel.frame.width
-        let deltaX = targetLabel.center.x - sourceLabel.center.x
+        let deltaX = targetLabel.frame.origin.x - sourceLabel.frame.origin.x
         if style.isShowBottomLine {
             UIView.animate(withDuration: 0.25, animations: {
-                self.bottomLine.center.x = sourceLabel.center.x + deltaX * progress
+                self.bottomLine.frame.origin.x = sourceLabel.frame.origin.x + deltaX * progress
                 self.bottomLine.frame.size.width = sourceLabel.frame.width + deltaW * progress
+            })
+        }
+        
+        //调整遮盖视图的位置及宽度
+        if style.isShowCoverView {
+            UIView.animate(withDuration: 0.25, animations: {
+                self.coverView.frame.origin.x = self.style.isScrollViewEnable ? (sourceLabel.frame.origin.x - self.style.coverViewMargin + deltaX * progress):(sourceLabel.center.x + deltaX * progress)
+                self.coverView.frame.size.width = self.style.isScrollViewEnable ? (sourceLabel.frame.width + self.style.coverViewMargin * 2 + deltaW * progress) : (sourceLabel.frame.width + deltaW * progress)
             })
         }
     }
