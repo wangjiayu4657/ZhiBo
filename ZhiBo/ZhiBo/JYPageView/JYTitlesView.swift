@@ -99,8 +99,8 @@ extension JYTitlesView {
         //设置label的frame
         var labelX:CGFloat = 0
         let labelY:CGFloat = 0
-        var labelW:CGFloat = bounds.width / CGFloat(titles.count)
         let labelH:CGFloat = style.titleHeight
+        var labelW:CGFloat = bounds.width / CGFloat(titles.count)
         
         for (i,titleLabel) in titleLabels.enumerated() {
             if style.isScrollViewEnable {
@@ -251,9 +251,6 @@ extension JYTitlesView : JYContentViewDelegate {
         }
     }
 }
-
-//UIViewAlertForUnsatisfiableConstraints
-//po [[UIWindow keyWindow] _autolayoutTrace]
 
 
 

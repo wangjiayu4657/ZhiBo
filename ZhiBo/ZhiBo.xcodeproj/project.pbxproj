@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		752D8D0A1FE4DC4F000D1666 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752D8D091FE4DC4F000D1666 /* UIColor+Extension.swift */; };
+		7593F9F2200864E400B86952 /* JYWaterFallFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593F9F1200864E400B86952 /* JYWaterFallFlowLayout.swift */; };
 		75DC904E1FE3C8520076DB5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DC904D1FE3C8520076DB5B /* AppDelegate.swift */; };
 		75DC90501FE3C8520076DB5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DC904F1FE3C8520076DB5B /* ViewController.swift */; };
 		75DC90531FE3C8520076DB5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75DC90511FE3C8520076DB5B /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		752D8D091FE4DC4F000D1666 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		7593F9F1200864E400B86952 /* JYWaterFallFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYWaterFallFlowLayout.swift; sourceTree = "<group>"; };
 		75DC904A1FE3C8520076DB5B /* ZhiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75DC904D1FE3C8520076DB5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75DC904F1FE3C8520076DB5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7593F9F02008648900B86952 /* JYWaterFallFlow */ = {
+			isa = PBXGroup;
+			children = (
+				7593F9F1200864E400B86952 /* JYWaterFallFlowLayout.swift */,
+			);
+			path = JYWaterFallFlow;
+			sourceTree = "<group>";
+		};
 		75DC90411FE3C8520076DB5B = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +117,7 @@
 		75DC904C1FE3C8520076DB5B /* ZhiBo */ = {
 			isa = PBXGroup;
 			children = (
+				7593F9F02008648900B86952 /* JYWaterFallFlow */,
 				75DC907B1FE3C8780076DB5B /* JYPageView */,
 				75DC904D1FE3C8520076DB5B /* AppDelegate.swift */,
 				75DC904F1FE3C8520076DB5B /* ViewController.swift */,
@@ -284,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				752D8D0A1FE4DC4F000D1666 /* UIColor+Extension.swift in Sources */,
+				7593F9F2200864E400B86952 /* JYWaterFallFlowLayout.swift in Sources */,
 				75DC907F1FE3C8980076DB5B /* JYTitlesView.swift in Sources */,
 				75DC90501FE3C8520076DB5B /* ViewController.swift in Sources */,
 				75DC904E1FE3C8520076DB5B /* AppDelegate.swift in Sources */,
