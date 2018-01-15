@@ -19,17 +19,19 @@ class ViewController: UIViewController {
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 10
         layout.dataSource = self
+        
         let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentBehavior.never
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kTestCellID)
         collectionView.dataSource = self
+        collectionView.delegate = self
         return collectionView
     }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setCollectionView()
         
         /*
@@ -39,6 +41,7 @@ class ViewController: UIViewController {
         var childVCs = [UIViewController]()
         for _ in 0..<titles.count {
             let vc = UIViewController()
+            vc.view.addSubview(collectionView)
             vc.view.backgroundColor = UIColor.init(hex: "##ff0022")
             childVCs.append(vc)
         }
@@ -60,6 +63,7 @@ class ViewController: UIViewController {
     
     
     private func setCollectionView() {
+        collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentBehavior.automatic
         self.view.addSubview(collectionView)
     }
 
@@ -82,9 +86,20 @@ extension ViewController : UICollectionViewDataSource {
     }
 }
 
+extension ViewController : UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
+        
+        navigationController?.pushViewController(JYLiveViewController(), animated: true)
+    }
+}
+
+
 extension ViewController : JYWaterFallFlowLayoutDataSource {
     func waterFallFlowLayout(_ waterFallFlow: JYWaterFallFlowLayout, itemIndex: Int) -> CGFloat {
-        return CGFloat(arc4random_uniform(200) + 50)
+        let screenW = UIScreen.main.bounds.width
+        return itemIndex % 2 == 0 ? screenW * 2 / 3 : screenW * 0.5
+//        return CGFloat(arc4random_uniform(200) + 50)
     }
 }
 

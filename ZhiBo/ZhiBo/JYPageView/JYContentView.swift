@@ -64,6 +64,7 @@ extension JYContentView {
     fileprivate func setupUI() {
         print(frame);
         for childVC in childVCs {
+            
             parentVC.addChildViewController(childVC)
         }
         //添加子控件

@@ -40,7 +40,6 @@ extension JYWaterFallFlowLayout {
             let itemX = sectionInset.left + (itemW + minimumInteritemSpacing) * CGFloat(minIndex)
             let itemY = minH
             attribute.frame = CGRect(x: itemX, y: itemY, width: itemW, height: itemH)
-            print(attribute.frame)
             
             attributes.append(attribute)
             heights[minIndex] = attribute.frame.maxY + minimumLineSpacing

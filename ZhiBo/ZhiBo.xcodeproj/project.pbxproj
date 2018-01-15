@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		752D8D0A1FE4DC4F000D1666 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752D8D091FE4DC4F000D1666 /* UIColor+Extension.swift */; };
+		7537CB37200C46C900655F0B /* JYNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537CB36200C46C900655F0B /* JYNavigationController.swift */; };
+		757B8A05200C455A0045A5CD /* JYLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757B8A04200C455A0045A5CD /* JYLiveViewController.swift */; };
 		7593F9F2200864E400B86952 /* JYWaterFallFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593F9F1200864E400B86952 /* JYWaterFallFlowLayout.swift */; };
 		75DC904E1FE3C8520076DB5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DC904D1FE3C8520076DB5B /* AppDelegate.swift */; };
 		75DC90501FE3C8520076DB5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DC904F1FE3C8520076DB5B /* ViewController.swift */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		752D8D091FE4DC4F000D1666 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		7537CB36200C46C900655F0B /* JYNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYNavigationController.swift; sourceTree = "<group>"; };
+		757B8A04200C455A0045A5CD /* JYLiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYLiveViewController.swift; sourceTree = "<group>"; };
 		7593F9F1200864E400B86952 /* JYWaterFallFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYWaterFallFlowLayout.swift; sourceTree = "<group>"; };
 		75DC904A1FE3C8520076DB5B /* ZhiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75DC904D1FE3C8520076DB5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7537CB35200C46A600655F0B /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				7537CB36200C46C900655F0B /* JYNavigationController.swift */,
+			);
+			path = BaseClass;
+			sourceTree = "<group>";
+		};
+		757B8A03200C45390045A5CD /* JYLiveController */ = {
+			isa = PBXGroup;
+			children = (
+				757B8A04200C455A0045A5CD /* JYLiveViewController.swift */,
+			);
+			path = JYLiveController;
+			sourceTree = "<group>";
+		};
 		7593F9F02008648900B86952 /* JYWaterFallFlow */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +137,8 @@
 		75DC904C1FE3C8520076DB5B /* ZhiBo */ = {
 			isa = PBXGroup;
 			children = (
+				7537CB35200C46A600655F0B /* BaseClass */,
+				757B8A03200C45390045A5CD /* JYLiveController */,
 				7593F9F02008648900B86952 /* JYWaterFallFlow */,
 				75DC907B1FE3C8780076DB5B /* JYPageView */,
 				75DC904D1FE3C8520076DB5B /* AppDelegate.swift */,
@@ -294,8 +316,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7537CB37200C46C900655F0B /* JYNavigationController.swift in Sources */,
 				752D8D0A1FE4DC4F000D1666 /* UIColor+Extension.swift in Sources */,
 				7593F9F2200864E400B86952 /* JYWaterFallFlowLayout.swift in Sources */,
+				757B8A05200C455A0045A5CD /* JYLiveViewController.swift in Sources */,
 				75DC907F1FE3C8980076DB5B /* JYTitlesView.swift in Sources */,
 				75DC90501FE3C8520076DB5B /* ViewController.swift in Sources */,
 				75DC904E1FE3C8520076DB5B /* AppDelegate.swift in Sources */,
