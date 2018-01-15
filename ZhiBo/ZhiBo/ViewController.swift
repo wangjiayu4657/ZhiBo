@@ -88,8 +88,6 @@ extension ViewController : UICollectionViewDataSource {
 
 extension ViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
-        
         navigationController?.pushViewController(JYLiveViewController(), animated: true)
     }
 }
