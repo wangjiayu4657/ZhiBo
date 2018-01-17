@@ -43,5 +43,7 @@ struct JYPageStyle {
     //遮盖视图的间距
     var coverViewMargin:CGFloat = 10
     
+    //pageControl的高度 
+    var pageControlHeight:CGFloat = 20
 }
 

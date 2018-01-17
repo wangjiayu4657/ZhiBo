@@ -10,6 +10,8 @@
 		752D8D0A1FE4DC4F000D1666 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752D8D091FE4DC4F000D1666 /* UIColor+Extension.swift */; };
 		7537CB37200C46C900655F0B /* JYNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537CB36200C46C900655F0B /* JYNavigationController.swift */; };
 		757B8A05200C455A0045A5CD /* JYLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757B8A04200C455A0045A5CD /* JYLiveViewController.swift */; };
+		7581215E200F40A6007B8E88 /* JYPageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7581215D200F40A6007B8E88 /* JYPageCollectionView.swift */; };
+		75812160200F5F46007B8E88 /* JYPageCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7581215F200F5F46007B8E88 /* JYPageCollectionLayout.swift */; };
 		7593F9F2200864E400B86952 /* JYWaterFallFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593F9F1200864E400B86952 /* JYWaterFallFlowLayout.swift */; };
 		75DC904E1FE3C8520076DB5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DC904D1FE3C8520076DB5B /* AppDelegate.swift */; };
 		75DC90501FE3C8520076DB5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DC904F1FE3C8520076DB5B /* ViewController.swift */; };
@@ -45,6 +47,8 @@
 		752D8D091FE4DC4F000D1666 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7537CB36200C46C900655F0B /* JYNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYNavigationController.swift; sourceTree = "<group>"; };
 		757B8A04200C455A0045A5CD /* JYLiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYLiveViewController.swift; sourceTree = "<group>"; };
+		7581215D200F40A6007B8E88 /* JYPageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYPageCollectionView.swift; sourceTree = "<group>"; };
+		7581215F200F5F46007B8E88 /* JYPageCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYPageCollectionLayout.swift; sourceTree = "<group>"; };
 		7593F9F1200864E400B86952 /* JYWaterFallFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYWaterFallFlowLayout.swift; sourceTree = "<group>"; };
 		75DC904A1FE3C8520076DB5B /* ZhiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75DC904D1FE3C8520076DB5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,11 +176,13 @@
 		75DC907B1FE3C8780076DB5B /* JYPageView */ = {
 			isa = PBXGroup;
 			children = (
+				7581215D200F40A6007B8E88 /* JYPageCollectionView.swift */,
 				75DC907C1FE3C8890076DB5B /* JYPageView.swift */,
 				75DC907E1FE3C8980076DB5B /* JYTitlesView.swift */,
 				75DC90801FE3C8A20076DB5B /* JYContentView.swift */,
 				75DC90821FE3C8C30076DB5B /* JYPageStyle.swift */,
 				752D8D091FE4DC4F000D1666 /* UIColor+Extension.swift */,
+				7581215F200F5F46007B8E88 /* JYPageCollectionLayout.swift */,
 			);
 			path = JYPageView;
 			sourceTree = "<group>";
@@ -325,6 +331,8 @@
 				75DC904E1FE3C8520076DB5B /* AppDelegate.swift in Sources */,
 				75DC907D1FE3C8890076DB5B /* JYPageView.swift in Sources */,
 				75DC90811FE3C8A20076DB5B /* JYContentView.swift in Sources */,
+				75812160200F5F46007B8E88 /* JYPageCollectionLayout.swift in Sources */,
+				7581215E200F40A6007B8E88 /* JYPageCollectionView.swift in Sources */,
 				75DC90831FE3C8C30076DB5B /* JYPageStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
