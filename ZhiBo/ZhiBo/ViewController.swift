@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 10
-        layout.dataSource = self
+        layout.itemHeightSource = self
         
         let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentBehavior.never
@@ -32,9 +32,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.randomColor()
-//        setCollectionView()
+        setCollectionView()
         
-        setPageCollectionView()
         
         /*
         let frame = CGRect(x: 0, y: 64, width: view.bounds.width, height: view.bounds.height)
@@ -64,15 +63,6 @@ class ViewController: UIViewController {
         self.view.addSubview(collectionView)
     }
     
-    func setPageCollectionView(){
-        let pageCollecitonViewF = CGRect(x: 0, y: 100, width: view.bounds.width, height: 300)
-        let titles:[String] = ["热门","高级","豪华","专属"]
-        var style:JYPageStyle = JYPageStyle()
-        style.isShowBottomLine = true
-        let pageCollectionView = JYPageCollectionView(frame: pageCollecitonViewF, titles: titles, style: style, isTitleInTop: true)
-        
-        view.addSubview(pageCollectionView)
-    }
 
 
     override func didReceiveMemoryWarning() {
@@ -108,7 +98,7 @@ extension ViewController : UICollectionViewDelegate {
 }
 
 
-extension ViewController : JYWaterFallFlowLayoutDataSource {
+extension ViewController : JYWaterFallFlowLayoutHeightDataSource {
     func waterFallFlowLayout(_ waterFallFlow: JYWaterFallFlowLayout, itemIndex: Int) -> CGFloat {
         let screenW = UIScreen.main.bounds.width
         return itemIndex % 2 == 0 ? screenW * 2 / 3 : screenW * 0.5

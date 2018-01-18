@@ -114,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				7593F9F1200864E400B86952 /* JYWaterFallFlowLayout.swift */,
+				7581215F200F5F46007B8E88 /* JYPageCollectionLayout.swift */,
 			);
 			path = JYWaterFallFlow;
 			sourceTree = "<group>";
@@ -182,7 +183,6 @@
 				75DC90801FE3C8A20076DB5B /* JYContentView.swift */,
 				75DC90821FE3C8C30076DB5B /* JYPageStyle.swift */,
 				752D8D091FE4DC4F000D1666 /* UIColor+Extension.swift */,
-				7581215F200F5F46007B8E88 /* JYPageCollectionLayout.swift */,
 			);
 			path = JYPageView;
 			sourceTree = "<group>";

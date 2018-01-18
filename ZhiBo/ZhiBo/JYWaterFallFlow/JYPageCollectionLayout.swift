@@ -4,11 +4,11 @@
 //
 //  Created by wangjiayu on 2018/1/17.
 //  Copyright © 2018年 wangjiayu. All rights reserved.
-//
+//  横向流水布局 
 
 import UIKit
 
-class JYPageCollectionLayout: JYWaterFallFlowLayout {
+class JYPageCollectionLayout: UICollectionViewFlowLayout {
     var cols:Int = 4
     var rows:Int = 2
     var itemMargin:CGFloat = 0

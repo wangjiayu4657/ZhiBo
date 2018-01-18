@@ -45,5 +45,7 @@ struct JYPageStyle {
     
     //pageControl的高度 
     var pageControlHeight:CGFloat = 20
+    //标题是否在顶部
+    var isTitleInTop:Bool = true
 }
 

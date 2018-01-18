@@ -1,21 +1,21 @@
 //
 //  JYWaterFallFlowLayout.swift
 //  ZhiBo
-//
+
 //  Created by wangjiayu on 2018/1/12.
 //  Copyright © 2018年 wangjiayu. All rights reserved.
-//
+//  纵向流水布局
 
 import UIKit
 
-protocol JYWaterFallFlowLayoutDataSource : class {
+protocol JYWaterFallFlowLayoutHeightDataSource : class {
     func waterFallFlowLayout(_ waterFallFlow:JYWaterFallFlowLayout,itemIndex:Int) -> CGFloat
 }
 
 class JYWaterFallFlowLayout: UICollectionViewFlowLayout {
     //列数
     var col = 2
-    weak var dataSource:JYWaterFallFlowLayoutDataSource?
+    weak var itemHeightSource:JYWaterFallFlowLayoutHeightDataSource?
     fileprivate lazy var attributes:[UICollectionViewLayoutAttributes] = [UICollectionViewLayoutAttributes]()
     fileprivate lazy var heights:[CGFloat] = Array(repeatElement(sectionInset.top, count: col))
     fileprivate lazy var maxHeight:CGFloat = self.sectionInset.top + self.sectionInset.bottom
@@ -34,7 +34,7 @@ extension JYWaterFallFlowLayout {
         for i in attributes.count..<count {
             let indexPath = IndexPath(item: i, section: 0)
             let attribute = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-            let itemH = dataSource?.waterFallFlowLayout(self, itemIndex: i) ?? 100.0
+            let itemH = itemHeightSource?.waterFallFlowLayout(self, itemIndex: i) ?? 100.0
             let minH = heights.min()!
             let minIndex = heights.index(of: minH)!
             let itemX = sectionInset.left + (itemW + minimumInteritemSpacing) * CGFloat(minIndex)
