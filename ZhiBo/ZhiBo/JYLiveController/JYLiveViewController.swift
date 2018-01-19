@@ -55,7 +55,7 @@ extension JYLiveViewController : JYPageCollectionViewDataSource {
     }
     
     func pageCollectionView(_ pageCollectionView: JYPageCollectionView, numberOfPageInSection section: Int) -> Int {
-        return 30
+        return Int(arc4random_uniform(200))
     }
     
     func pageCollectionView(_ pageCollectionView: JYPageCollectionView, _ collectionView: UICollectionView, pageItemAt indexPath: IndexPath) -> UICollectionViewCell {
