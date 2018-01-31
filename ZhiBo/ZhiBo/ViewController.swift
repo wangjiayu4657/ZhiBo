@@ -1,4 +1,4 @@
-//
+ //
 //  ViewController.swift
 //  ZhiBo
 //
@@ -12,7 +12,7 @@ let kTestCellID = "kTestCellID"
 class ViewController: UIViewController {
     
     var count:Int = 30
-    
+    fileprivate lazy var gift:GiftViewModel = GiftViewModel()
     fileprivate lazy var collectionView:UICollectionView = {
         let layout = JYWaterFallFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -34,7 +34,10 @@ class ViewController: UIViewController {
         view.backgroundColor = UIColor.randomColor()
         setCollectionView()
         
-        
+        gift.requestData {
+            print(self.gift.result.count)
+        }
+    
         /*
         let frame = CGRect(x: 0, y: 64, width: view.bounds.width, height: view.bounds.height)
 //        let titles = ["推荐","娱乐","游戏","趣玩"]

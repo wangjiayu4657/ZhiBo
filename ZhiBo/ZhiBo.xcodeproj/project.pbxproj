@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5DAFB9A3E19CF4C41A620DF3 /* Pods_ZhiBoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC499924FFBCBEAD321BD8 /* Pods_ZhiBoTests.framework */; };
+		66FC024E00706D54D0924B09 /* Pods_ZhiBo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B1E00B34F9F7325D1549D3 /* Pods_ZhiBo.framework */; };
 		752D8D0A1FE4DC4F000D1666 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752D8D091FE4DC4F000D1666 /* UIColor+Extension.swift */; };
 		7537CB37200C46C900655F0B /* JYNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537CB36200C46C900655F0B /* JYNavigationController.swift */; };
+		7545E4FB202020D800A9F2CF /* JYRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7545E4FA202020D800A9F2CF /* JYRequestable.swift */; };
 		757B8A05200C455A0045A5CD /* JYLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757B8A04200C455A0045A5CD /* JYLiveViewController.swift */; };
 		7581215E200F40A6007B8E88 /* JYPageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7581215D200F40A6007B8E88 /* JYPageCollectionView.swift */; };
 		75812160200F5F46007B8E88 /* JYPageCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7581215F200F5F46007B8E88 /* JYPageCollectionLayout.swift */; };
@@ -24,6 +27,11 @@
 		75DC907F1FE3C8980076DB5B /* JYTitlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DC907E1FE3C8980076DB5B /* JYTitlesView.swift */; };
 		75DC90811FE3C8A20076DB5B /* JYContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DC90801FE3C8A20076DB5B /* JYContentView.swift */; };
 		75DC90831FE3C8C30076DB5B /* JYPageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DC90821FE3C8C30076DB5B /* JYPageStyle.swift */; };
+		75E37BE2201B21CF0041BC7C /* JYNetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E37BE1201B21CF0041BC7C /* JYNetworkTools.swift */; };
+		75E37BE5201B287F0041BC7C /* GiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E37BE4201B287F0041BC7C /* GiftViewModel.swift */; };
+		75E37BE7201B288F0041BC7C /* GiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E37BE6201B288F0041BC7C /* GiftModel.swift */; };
+		75E37BE9201B28B10041BC7C /* GiftPackages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E37BE8201B28B10041BC7C /* GiftPackages.swift */; };
+		A01DC200C2DE4A1B29A8E0EE /* Pods_ZhiBoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E68110E7B79F46F37387774 /* Pods_ZhiBoUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +52,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15CB3D52DBF0B53BFD0A9B91 /* Pods-ZhiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiBo/Pods-ZhiBo.release.xcconfig"; sourceTree = "<group>"; };
+		17A73BB64EFF5FAC3085B2D3 /* Pods-ZhiBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiBo/Pods-ZhiBo.debug.xcconfig"; sourceTree = "<group>"; };
+		28B1E00B34F9F7325D1549D3 /* Pods_ZhiBo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZhiBo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		39906C8E9A0E57CA825BD548 /* Pods-ZhiBoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiBoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiBoUITests/Pods-ZhiBoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		49FC499924FFBCBEAD321BD8 /* Pods_ZhiBoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZhiBoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E68110E7B79F46F37387774 /* Pods_ZhiBoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZhiBoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		752D8D091FE4DC4F000D1666 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7537CB36200C46C900655F0B /* JYNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYNavigationController.swift; sourceTree = "<group>"; };
+		7545E4FA202020D800A9F2CF /* JYRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYRequestable.swift; sourceTree = "<group>"; };
 		757B8A04200C455A0045A5CD /* JYLiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYLiveViewController.swift; sourceTree = "<group>"; };
 		7581215D200F40A6007B8E88 /* JYPageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYPageCollectionView.swift; sourceTree = "<group>"; };
 		7581215F200F5F46007B8E88 /* JYPageCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYPageCollectionLayout.swift; sourceTree = "<group>"; };
@@ -67,6 +82,13 @@
 		75DC907E1FE3C8980076DB5B /* JYTitlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYTitlesView.swift; sourceTree = "<group>"; };
 		75DC90801FE3C8A20076DB5B /* JYContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYContentView.swift; sourceTree = "<group>"; };
 		75DC90821FE3C8C30076DB5B /* JYPageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYPageStyle.swift; sourceTree = "<group>"; };
+		75E37BE1201B21CF0041BC7C /* JYNetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JYNetworkTools.swift; sourceTree = "<group>"; };
+		75E37BE4201B287F0041BC7C /* GiftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewModel.swift; sourceTree = "<group>"; };
+		75E37BE6201B288F0041BC7C /* GiftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftModel.swift; sourceTree = "<group>"; };
+		75E37BE8201B28B10041BC7C /* GiftPackages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftPackages.swift; sourceTree = "<group>"; };
+		A419CFF2B325E22AF8493CB1 /* Pods-ZhiBoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiBoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiBoUITests/Pods-ZhiBoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CCF6FC011D704BAFC2E2AEA6 /* Pods-ZhiBoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiBoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiBoTests/Pods-ZhiBoTests.release.xcconfig"; sourceTree = "<group>"; };
+		D4F7D31B7C47E0535FEAD0A9 /* Pods-ZhiBoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhiBoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhiBoTests/Pods-ZhiBoTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66FC024E00706D54D0924B09 /* Pods_ZhiBo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DAFB9A3E19CF4C41A620DF3 /* Pods_ZhiBoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,12 +112,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A01DC200C2DE4A1B29A8E0EE /* Pods_ZhiBoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40F5298CFF68D5BB7859841A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28B1E00B34F9F7325D1549D3 /* Pods_ZhiBo.framework */,
+				49FC499924FFBCBEAD321BD8 /* Pods_ZhiBoTests.framework */,
+				6E68110E7B79F46F37387774 /* Pods_ZhiBoUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7537CB35200C46A600655F0B /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +161,8 @@
 				75DC90611FE3C8520076DB5B /* ZhiBoTests */,
 				75DC906C1FE3C8520076DB5B /* ZhiBoUITests */,
 				75DC904B1FE3C8520076DB5B /* Products */,
+				A7624B5C22D68184F16E10BB /* Pods */,
+				40F5298CFF68D5BB7859841A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +179,8 @@
 		75DC904C1FE3C8520076DB5B /* ZhiBo */ = {
 			isa = PBXGroup;
 			children = (
+				75E37BE3201B28650041BC7C /* Gift */,
+				75E37BE0201B21A90041BC7C /* NetworkTools */,
 				7537CB35200C46A600655F0B /* BaseClass */,
 				757B8A03200C45390045A5CD /* JYLiveController */,
 				7593F9F02008648900B86952 /* JYWaterFallFlow */,
@@ -187,6 +226,38 @@
 			path = JYPageView;
 			sourceTree = "<group>";
 		};
+		75E37BE0201B21A90041BC7C /* NetworkTools */ = {
+			isa = PBXGroup;
+			children = (
+				75E37BE1201B21CF0041BC7C /* JYNetworkTools.swift */,
+				7545E4FA202020D800A9F2CF /* JYRequestable.swift */,
+			);
+			path = NetworkTools;
+			sourceTree = "<group>";
+		};
+		75E37BE3201B28650041BC7C /* Gift */ = {
+			isa = PBXGroup;
+			children = (
+				75E37BE4201B287F0041BC7C /* GiftViewModel.swift */,
+				75E37BE6201B288F0041BC7C /* GiftModel.swift */,
+				75E37BE8201B28B10041BC7C /* GiftPackages.swift */,
+			);
+			path = Gift;
+			sourceTree = "<group>";
+		};
+		A7624B5C22D68184F16E10BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				17A73BB64EFF5FAC3085B2D3 /* Pods-ZhiBo.debug.xcconfig */,
+				15CB3D52DBF0B53BFD0A9B91 /* Pods-ZhiBo.release.xcconfig */,
+				D4F7D31B7C47E0535FEAD0A9 /* Pods-ZhiBoTests.debug.xcconfig */,
+				CCF6FC011D704BAFC2E2AEA6 /* Pods-ZhiBoTests.release.xcconfig */,
+				39906C8E9A0E57CA825BD548 /* Pods-ZhiBoUITests.debug.xcconfig */,
+				A419CFF2B325E22AF8493CB1 /* Pods-ZhiBoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,9 +265,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75DC90721FE3C8520076DB5B /* Build configuration list for PBXNativeTarget "ZhiBo" */;
 			buildPhases = (
+				3C56C742B54685FA07514053 /* [CP] Check Pods Manifest.lock */,
 				75DC90461FE3C8520076DB5B /* Sources */,
 				75DC90471FE3C8520076DB5B /* Frameworks */,
 				75DC90481FE3C8520076DB5B /* Resources */,
+				5893CD81CCC336B3FE0D13DB /* [CP] Embed Pods Frameworks */,
+				CD28EA1F90828BA85F6A4717 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -211,9 +285,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75DC90751FE3C8520076DB5B /* Build configuration list for PBXNativeTarget "ZhiBoTests" */;
 			buildPhases = (
+				04F83EA26CEBDC84C3D5C5D7 /* [CP] Check Pods Manifest.lock */,
 				75DC905A1FE3C8520076DB5B /* Sources */,
 				75DC905B1FE3C8520076DB5B /* Frameworks */,
 				75DC905C1FE3C8520076DB5B /* Resources */,
+				9CFE7611AEECBEDF6465ABB3 /* [CP] Embed Pods Frameworks */,
+				7961AB9FB58F3ADFC9F5CCE2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,9 +306,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75DC90781FE3C8520076DB5B /* Build configuration list for PBXNativeTarget "ZhiBoUITests" */;
 			buildPhases = (
+				11A2C1FB83A26CABA18FF517 /* [CP] Check Pods Manifest.lock */,
 				75DC90651FE3C8520076DB5B /* Sources */,
 				75DC90661FE3C8520076DB5B /* Frameworks */,
 				75DC90671FE3C8520076DB5B /* Resources */,
+				E68349DD105250337E58C0EA /* [CP] Embed Pods Frameworks */,
+				553DDAE3290D557741BB6327 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -317,6 +397,156 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		04F83EA26CEBDC84C3D5C5D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZhiBoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		11A2C1FB83A26CABA18FF517 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZhiBoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C56C742B54685FA07514053 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZhiBo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		553DDAE3290D557741BB6327 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZhiBoUITests/Pods-ZhiBoUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5893CD81CCC336B3FE0D13DB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ZhiBo/Pods-ZhiBo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZhiBo/Pods-ZhiBo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7961AB9FB58F3ADFC9F5CCE2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZhiBoTests/Pods-ZhiBoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9CFE7611AEECBEDF6465ABB3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZhiBoTests/Pods-ZhiBoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD28EA1F90828BA85F6A4717 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZhiBo/Pods-ZhiBo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E68349DD105250337E58C0EA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZhiBoUITests/Pods-ZhiBoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		75DC90461FE3C8520076DB5B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -325,14 +555,19 @@
 				7537CB37200C46C900655F0B /* JYNavigationController.swift in Sources */,
 				752D8D0A1FE4DC4F000D1666 /* UIColor+Extension.swift in Sources */,
 				7593F9F2200864E400B86952 /* JYWaterFallFlowLayout.swift in Sources */,
+				75E37BE7201B288F0041BC7C /* GiftModel.swift in Sources */,
+				75E37BE2201B21CF0041BC7C /* JYNetworkTools.swift in Sources */,
 				757B8A05200C455A0045A5CD /* JYLiveViewController.swift in Sources */,
+				75E37BE9201B28B10041BC7C /* GiftPackages.swift in Sources */,
 				75DC907F1FE3C8980076DB5B /* JYTitlesView.swift in Sources */,
+				75E37BE5201B287F0041BC7C /* GiftViewModel.swift in Sources */,
 				75DC90501FE3C8520076DB5B /* ViewController.swift in Sources */,
 				75DC904E1FE3C8520076DB5B /* AppDelegate.swift in Sources */,
 				75DC907D1FE3C8890076DB5B /* JYPageView.swift in Sources */,
 				75DC90811FE3C8A20076DB5B /* JYContentView.swift in Sources */,
 				75812160200F5F46007B8E88 /* JYPageCollectionLayout.swift in Sources */,
 				7581215E200F40A6007B8E88 /* JYPageCollectionView.swift in Sources */,
+				7545E4FB202020D800A9F2CF /* JYRequestable.swift in Sources */,
 				75DC90831FE3C8C30076DB5B /* JYPageStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +732,7 @@
 		};
 		75DC90731FE3C8520076DB5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17A73BB64EFF5FAC3085B2D3 /* Pods-ZhiBo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -512,6 +748,7 @@
 		};
 		75DC90741FE3C8520076DB5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15CB3D52DBF0B53BFD0A9B91 /* Pods-ZhiBo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -527,6 +764,7 @@
 		};
 		75DC90761FE3C8520076DB5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4F7D31B7C47E0535FEAD0A9 /* Pods-ZhiBoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -544,6 +782,7 @@
 		};
 		75DC90771FE3C8520076DB5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCF6FC011D704BAFC2E2AEA6 /* Pods-ZhiBoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -561,6 +800,7 @@
 		};
 		75DC90791FE3C8520076DB5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39906C8E9A0E57CA825BD548 /* Pods-ZhiBoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -577,6 +817,7 @@
 		};
 		75DC907A1FE3C8520076DB5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A419CFF2B325E22AF8493CB1 /* Pods-ZhiBoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
